@@ -8,10 +8,14 @@ const ArticleSchema = new Schema({
     unique: true,
     required: true
   },
-
   link: {
     type: String,
+    unique: true,
     required: true
+  },
+  summary: {
+    type: String,
+    unique: true
   },
   comment: {
     type: Schema.Types.ObjectId,

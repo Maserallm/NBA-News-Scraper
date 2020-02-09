@@ -29,7 +29,7 @@ module.exports = function(app) {
         });
       });
 
-    res.send("Scrape Complete");
+    //res.send("Scrape Complete");
   });
 
   app.get("/api/articles", function(req, res) {
@@ -38,4 +38,10 @@ module.exports = function(app) {
       .then(data => res.json(data))
       .catch(err => res.json(err));
   });
+
+  // app.get("/api/saved", function(req, res) {
+  //   db.Article.find({ saved: true })
+  //     .then(data => res.json(data))
+  //     .catch(err => res.json(err));
+  // });
 };

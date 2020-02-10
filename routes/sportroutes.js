@@ -20,9 +20,18 @@ module.exports = function(app) {
             .find("a")
             .attr("href");
 
-          if (title && link && summary) {
+          let image = $(element)
+            .find("img")
+            .attr("src");
+
+          if (title && link && summary && image) {
             // Insert the data in the-daily-mail db
-            db.Article.create({ title: title, summary: summary, link: link })
+            db.Article.create({
+              title: title,
+              summary: summary,
+              link: link,
+              image: image
+            })
               .then(data => console.log(data))
               .catch(err => console.log(err.message));
           }
@@ -35,6 +44,7 @@ module.exports = function(app) {
   app.get("/api/articles", function(req, res) {
     db.Article.find({})
       .limit(10)
+      .populate("comment")
       .then(data => res.json(data))
       .catch(err => res.json(err));
   });
@@ -44,4 +54,17 @@ module.exports = function(app) {
   //     .then(data => res.json(data))
   //     .catch(err => res.json(err));
   // });
+
+  app.post("/articles/:id", function(req, res) {
+    db.Comment.create(req.body)
+      .then(function(commentData) {
+        return db.Article.findOneAndUpdate(
+          { _id: req.params.id },
+          { comment: commentData._id },
+          { new: true }
+        );
+      })
+      .then(commentData => res.json(commentData))
+      .catch(err => res.json(err));
+  });
 };

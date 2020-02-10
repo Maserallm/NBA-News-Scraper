@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Sports Update</title>
+    <link rel="icon" href="" type="image/x-icon">
+    <link href="css/hover.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,17 +18,19 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <img src="images/miltiadis-fragkidis-oycrSCI1Kh8-unsplash.jpg" alt="NBA Court Gametime">
-        <h1>The Sports Update!</h1>
+    <div class="jumbotron-fluid">
+        <a href="/"><img src="images/miltiadis-fragkidis-oycrSCI1Kh8-unsplash.jpg" alt="NBA Court Gametime"></a>
+        <a href="/">
+            <h1 class="text-center text-uppercase">The Sports Update!</h1>
+        </a>
     </div>
     <nav class="nav d-flex justify-content-center mb-2">
-        <a class="navlink p-2" href="/"><i class="fas fa-home mx-1"></i>Home</a>
-        <a class="navlink p-2" href="/scraped"><i class="far fa-newspaper mx-1"></i>Articles</a>
+        <a class="navlink p-2 hvr-bounce-in" href="/"><i class="fas fa-home mx-1"></i>Home</a>
+        <a class="navlink p-2 hvr-bounce-in" href="/scraped"><i class="far fa-newspaper mx-1"></i>Articles</a>
     </nav>
     <div class="container">
 
-        <h2>The Latest News from the Sports Around the World</h2>
+        <h2 class="text-center">The Latest News from the Sports Around the World</h2>
 
         {{{body}}}
     </div>

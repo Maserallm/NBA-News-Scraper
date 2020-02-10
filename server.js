@@ -3,7 +3,7 @@ const expressHbrs = require("express-handlebars");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3006;
 const app = express();
 
 app.use(logger("dev"));
@@ -33,6 +33,6 @@ require("./routes/htmlroutes")(app);
 
 app.listen(PORT, function() {
   console.log(
-    "App running on port 3000! Click Here to access http://localhost:3050"
+    "App running on port 3000! Click Here to access http://localhost:3000"
   );
 });

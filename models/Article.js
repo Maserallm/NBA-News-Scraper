@@ -20,6 +20,10 @@ const ArticleSchema = new Schema({
   comment: {
     type: Schema.Types.ObjectId,
     ref: "Comment"
+  },
+  image: {
+    type: String,
+    unique: true
   }
 });
 
